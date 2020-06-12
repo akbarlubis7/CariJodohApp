@@ -31,7 +31,7 @@ namespace CariJodohApp.API.Controllers
 
             if (await _repo.UserExist(userForRegisterDto.Username))
                 return BadRequest("Username already exist");
-            
+
             var userToCreate = new User
             {
                 Username = userForRegisterDto.Username
@@ -71,9 +71,11 @@ namespace CariJodohApp.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {
-                token= tokenHandler.WriteToken(token)
+            return Ok(new
+            {
+                token = tokenHandler.WriteToken(token)
             });
+
         }
     }
 }
